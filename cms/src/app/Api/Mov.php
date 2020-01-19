@@ -467,13 +467,26 @@ class Mov extends Api
     public function checkUpdate()
     {
         $update = array(
-            "versionCode" => 100,
-            "updateMsg" => "1.优化投屏播放及交互，欢迎体验。\n",
-            "downloadUrl" => "http://www.yyzzaa.com",
+            "versionCode" => 114,
+            "updateMsg" => "1.优化搜索错误提示，\n2.修复注册时用户名不少于6位的提示，\n3.修复分类出错的BUG。",
+            "downloadUrl" => "http://ys.jdzi.vip/app/download/jdzi.apk",
             "isForce" => true,
-            "version" => "1.6.3"
+            "version" => "1.1.4"
         );
         return $update;
+    }
+
+    /**
+     * @desc 公告
+     */
+    public function checkPubish()
+    {
+        $publish = array(
+            "content" => "祝大家新春快乐！",
+            "title" => "公告",
+            "show" => false
+        );
+        return $publish;
     }
 
     /**
@@ -484,43 +497,43 @@ class Mov extends Api
         $ad = array(
             "ad_splash" => array(
                 "img"=>"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571490871324&di=db56f6d4ed91343a3fcdf5888d03b011&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201511%2F13%2F20151113102650_WyAuR.thumb.700_0.jpeg",
-                "link"=>"http://qwe.seshewang.com",  //开屏广告
+                "link"=>"",  //开屏广告 700 x 1056
 				"show" => false
             ),
             "ad_home_1" => array(
                 "img"=>"https://ae01.alicdn.com/kf/Ud551bd98274c4ed28728bbf35661d713U.jpg",
-                "link"=>"http://qwe.seshewang.com", //推荐页广告
+                "link"=>"http://qwe.seshewang.com", //推荐页广告 601 x 204
 				"show" => false
             ),
             "ad_home_2" => array(
                 "img"=>"https://ae01.alicdn.com/kf/Ud551bd98274c4ed28728bbf35661d713U.jpg",
-                "link"=>"http://qwe.seshewang.com", //推荐页广告
-				"show" => false
+                "link"=>"http://qwe.seshewang.com", //推荐页广告 601 x 204
+				"show" => true
             ),
             "ad_home_3" => array(
                 "img"=>"https://ae01.alicdn.com/kf/Ud551bd98274c4ed28728bbf35661d713U.jpg",
-                "link"=>"http://qwe.seshewang.com", //推荐页广告
+                "link"=>"http://qwe.seshewang.com", //推荐页广告 601 x 204
 				"show" => false
             ),
             "ad_home_4" => array(
                 "img"=>"https://ae01.alicdn.com/kf/Ud551bd98274c4ed28728bbf35661d713U.jpg",
-                "link"=>"http://qwe.seshewang.com", //推荐页广告
-				"show" => false
+                "link"=>"http://qwe.seshewang.com", //推荐页广告 601 x 204
+				"show" => true
             ),
             "ad_detail" => array(
                 "img"=>"https://ae01.alicdn.com/kf/Ud551bd98274c4ed28728bbf35661d713U.jpg",
-                "link"=>"http://qwe.seshewang.com", //播放页广告
+                "link"=>"http://qwe.seshewang.com", //播放页广告 601 x 204
 				"show" => false
             ),
             "ad_player" => array(
                 "img"=>"https://ae01.alicdn.com/kf/U78fced679dc54b54b3a6bbd58099a4edT.jpg",
-                "link"=>"http://qwe.seshewang.com", //播放器广告
-				"show" => false
+                "link"=>"", //播放器广告 750 x 290
+				"show" => true
             ),
             "ad_user_center" => array(
-                "img"=>"https://ae01.alicdn.com/kf/Ud551bd98274c4ed28728bbf35661d713U.jpg",
-                "link"=>"http://qwe.seshewang.com", //个人中心广告
-				"show" => false
+                "img"=>"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3404377419,3822098491&fm=26&gp=0.jpg",
+                "link"=>"", //个人中心广告 601 x 204
+				"show" => true
             )
         );
         return $ad;

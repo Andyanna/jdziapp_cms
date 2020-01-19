@@ -30,28 +30,33 @@ class OnlineModel extends NotORM
         $rs['le1'] = $this->getORM()
             ->select('vod_id,vod_play_from,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
             ->where('vod_level', 1)
-            ->limit(1, 6)
+            ->order('vod_time desc')
+            ->limit(0, 6)
             ->fetchAll();
         $rs['le2'] = $this->getORM()
             ->select('vod_id,vod_play_from,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
             ->where('vod_level', 2)
-            ->limit(1, 6)
+            ->order('vod_time desc')
+            ->limit(0, 6)
             ->fetchAll();
 
         $rs['le3'] = $this->getORM()
             ->select('vod_id,vod_play_from,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
             ->where('vod_level', 3)
-            ->limit(1, 6)
+            ->order('vod_time desc')
+            ->limit(0, 6)
             ->fetchAll();
         $rs['le4'] = $this->getORM()
             ->select('vod_id,vod_play_from,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
             ->where('vod_level', 4)
-            ->limit(1, 6)
+            ->order('vod_time desc')
+            ->limit(0, 6)
             ->fetchAll();
         $rs['le5'] = $this->getORM()
             ->select('vod_id,vod_play_from,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
             ->where('vod_level', 5)
-            ->limit(1, 6)
+            ->order('vod_time desc')
+            ->limit(0, 6)
             ->fetchAll();
         return $rs;
     }
@@ -66,6 +71,7 @@ class OnlineModel extends NotORM
         return $this->getORM()
             ->select('vod_id,vod_play_from,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
             ->where('vod_level', $level)
+            ->order('vod_time desc')
             ->limit(($page - 1) * $perpage, $perpage)
             ->fetchAll();;
     }
@@ -242,6 +248,7 @@ class OnlineModel extends NotORM
                     return $this->getORM()
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
                         ->where("vod_year<=2016")
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }else{
@@ -249,6 +256,7 @@ class OnlineModel extends NotORM
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
                         ->where("vod_year<=2016")
                         ->where('type_id', $type)
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }
@@ -258,6 +266,7 @@ class OnlineModel extends NotORM
                     return $this->getORM()
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
                         ->where("vod_year<=2016")
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }else{
@@ -266,6 +275,7 @@ class OnlineModel extends NotORM
                         ->where("vod_year<=2016")
                         ->where("vod_area", $area)
                         ->where('type_id', $type)
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }
@@ -278,12 +288,14 @@ class OnlineModel extends NotORM
                 if ($type==0){
                     return $this->getORM()
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }else{
                     return $this->getORM()
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
                         ->where('type_id', $type)
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }
@@ -292,6 +304,7 @@ class OnlineModel extends NotORM
                 if ($type==0){
                     return $this->getORM()
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }else{
@@ -299,6 +312,7 @@ class OnlineModel extends NotORM
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
                         ->where("vod_area", $area)
                         ->where('type_id', $type)
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }
@@ -314,6 +328,7 @@ class OnlineModel extends NotORM
                     return $this->getORM()
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
                         ->where("vod_year", $year)
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }else{
@@ -321,6 +336,7 @@ class OnlineModel extends NotORM
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
                         ->where('type_id', $type)
                         ->where("vod_year", $year)
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }
@@ -331,6 +347,7 @@ class OnlineModel extends NotORM
                         ->select('vod_id,vod_play_from,vod_class,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
                         ->where("vod_year", $year)
                         ->where("vod_area", $area)
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }else{
@@ -339,6 +356,7 @@ class OnlineModel extends NotORM
                         ->where("vod_year", $year)
                         ->where("vod_area", $area)
                         ->where('type_id', $type)
+                        ->order('vod_time DESC')
                         ->limit(($page - 1) * $perpage, $perpage)
                         ->fetchAll();
                 }
@@ -361,7 +379,6 @@ class OnlineModel extends NotORM
         return $this->getORM()
             ->select('vod_id,vod_play_from,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
             ->where("type_id ='{$qure}'")
-            ->order('vod_time DESC')
             ->limit(($page - 1) * $perpage, $perpage)
             ->fetchAll();
     }
@@ -372,7 +389,7 @@ class OnlineModel extends NotORM
             ->select('vod_id,vod_play_from,type_id,vod_name,vod_actor,vod_pic,vod_remarks,vod_area,vod_lang,vod_year,vod_score,vod_time,vod_time_add,vod_content,vod_play_url')
             ->where("vod_id", $vodid)
             ->order('vod_time DESC')
-			->fetchAll();
+            ->fetchAll();
     }
 
     /**

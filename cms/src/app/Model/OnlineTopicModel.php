@@ -24,6 +24,7 @@ class OnlineTopicModel extends NotORM {
     public function getTopicRoot($page,$perpage) {
         return $this->getORM()
             ->select('topic_id,topic_name,topic_pic_slide,topic_sub')
+            ->order('topic_time desc')
             ->limit(($page - 1) * $perpage, $perpage)
             ->fetchAll();
     }

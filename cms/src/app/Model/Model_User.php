@@ -69,7 +69,7 @@ class Model_User extends NotORM
     public function regist($user, $pass, $mail)
     {
 
-        $data = array('user_name' => $user, 'user_pwd' => $pass, 'user_points' => 10,
+        $data = array('user_name' => $user, 'user_pwd' => $pass, 'user_points' => 100,
             'group_id' => 2, 'user_status' => 1,
             'user_points_froze' => 0,
             'user_portrait_thumb' => 0,
@@ -102,7 +102,7 @@ class Model_User extends NotORM
             ->where("user_random='{$utoken}' ")
             ->fetchOne();
         $points = $result['user_points'];
-        $newPoint = (int)$points + 1;
+        $newPoint = (int)$points + 10;
         $data = array('user_points' => $newPoint);
         $this->getORM()
             ->where("user_random", $utoken)
